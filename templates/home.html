@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/app.css">
+    <link
+      rel="stylesheet"
+      href="https://bootswatch.com/4/darkly/bootstrap.min.css"
+    />
+    <title>Home</title>
+</head>
+<body>
+    <h1>
+        <caption>Boggle Game</caption>
+    </h1>
+    <form action="/make-board">
+        <input type="text" name="size" id="size">
+        <button id="board-btn">Make board</button>
+    </form>
+
+
+    <table id="board_id" >
+        {% for row in game_board %}
+            
+            <tr>
+                {% for col in row%}
+                <td>
+                    {{col}}
+                </td>
+                {% endfor %}
+    
+            </tr>
+        {% endfor %}
+    </table>
+
+    <div class="responses">
+        <table>
+            <tr>
+                <td>
+                    <h5>Timer</h5>
+                    <p class="time"></p>
+                </td>
+    
+                <td>
+                    <h5>Response</h5>
+                    <p class="msg"></p>
+                </td>
+                <td>
+                    <h5>Higest Score</h5>
+                    <p class="hi_scores">{{high_score}}</p>
+                </td>  
+                <td>
+                    <h5>Score</h5>
+                    <p class="scores">0</p>
+                </td>
+                <td>
+                    <h5>Attempt</h5>
+                    <p class="Num Attempt">{{num_play}}</p>
+                </td>                
+            </tr>
+           
+        </table>
+        <button class="btn btn-primary start_btn">Start</button>
+        
+    </div>
+   
+
+    <h3>Take a guess!</h3>
+    <form method="POST">
+        <input type="text" name="word" id="word">
+        <button class="btn btn-primary">Submit</button>
+    </form>
+    
+    <script src="http://unpkg.com/jquery"></script>
+    <script src="https://unpkg.com/axios@0.19.0/dist/axios.js"></script>
+    <script src="/static/app.js"></script>
+    <script>let game = new boggleGame("boggle", 60)</script>
+</body>
+</html>
