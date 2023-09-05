@@ -20,7 +20,7 @@ NUM_PLAY = "num_play"
 
 @app.route('/')
 def home_page():
-    board = session.get(BOARD)
+    board = session.get(BOARD, None)
     print(board)
     high_score = session.get(HIGH_SCORE, 0)
     num_play = session.get(NUM_PLAY, 0)

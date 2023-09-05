@@ -21,6 +21,7 @@
 
 
     <table id="board_id" >
+        {% if game_board %}
         {% for row in game_board %}
             
             <tr>
@@ -32,6 +33,8 @@
     
             </tr>
         {% endfor %}
+        {% endif %}
+        
     </table>
 
     <div class="responses">

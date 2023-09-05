@@ -53,7 +53,6 @@ class boggleGame{
             
         }
     }
-
     async submit_size_form(evt){
         
         let size = parseInt($sizeinput.val());
@@ -71,10 +70,8 @@ class boggleGame{
                     $row.append($cell);
                 }
                 this.board_id.append($row);
-
             }
             this.board_id.show();
-
         }
         catch(e){
             console.log(e);
